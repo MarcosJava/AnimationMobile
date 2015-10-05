@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">JogoVelha</string>
+    <string name="app_name">Animações</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="virando">VIRANDO !!</string>
+    <string name="parando">PARA TUDO !!</string>
     <string name="action_settings">Settings</string>
 
 

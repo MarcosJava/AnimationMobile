@@ -18,15 +18,17 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvHello;
     private ImageView imgAnimacao;
     private boolean ativo = false;
+    private AnimationDrawable animationImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
         tvHello = (TextView)findViewById(R.id.tvHello);
-
+        tvHello.setText(R.string.virando);
         this.imgAnimacao = (ImageView) findViewById(R.id.imgAnimacao);
-
+        this.animationImage = (AnimationDrawable) this.imgAnimacao.getDrawable();
 
     }
 
@@ -35,18 +37,21 @@ public class MainActivity extends AppCompatActivity {
         tvHello.startAnimation(animation);
     }
 
-    public void animacaoImagem(){
-        AnimationDrawable animation =  (AnimationDrawable) this.imgAnimacao.getDrawable();
+
+    public void ativarEfeito(View view){
+
         if(ativo) ativo = false;
         else ativo = true;
 
-        if(ativo)  animation.start();
-        else animation.stop();
-    }
+        if(ativo) {
+            tvHello.setText(R.string.parando);
+            animationImage.start();
+        } else {
+            tvHello.setText(R.string.virando);
+            animationImage.stop();
+        }
 
-    public void ativarEfeito(View view){
         this.animacaoRodando();
-        this.animacaoImagem();
     }
 
     @Override
